@@ -842,6 +842,19 @@ function playGalaxyAudio() {
 }
 preloadGalaxyAudio();
 
+// Phát nhạc khi người dùng chạm vào bất kỳ đâu trên màn hình (chỉ phát lần đầu)
+let musicStarted = false;
+function startMusicOnce() {
+  if (!musicStarted) {
+    playGalaxyAudio();
+    musicStarted = true;
+    // Sau khi phát nhạc, bỏ lắng nghe để tránh gọi lại nhiều lần
+    document.removeEventListener('click', startMusicOnce);
+    document.removeEventListener('touchstart', startMusicOnce);
+  }
+}
+document.addEventListener('click', startMusicOnce);
+document.addEventListener('touchstart', startMusicOnce);
 
 
 // ---- VÒNG LẶP ANIMATE ----
