@@ -822,8 +822,7 @@ function preloadGalaxyAudio() {
    "./music/phepmau.mp3"
   ];
 
-  const randomIndex = Math.floor(Math.random() * audioSources.length);
-  const selectedSrc = audioSources[randomIndex];
+  const selectedSrc = audioSources[0];
 
   galaxyAudio = new Audio(selectedSrc);
   galaxyAudio.loop = true;
